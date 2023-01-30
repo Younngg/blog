@@ -1,10 +1,22 @@
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
+
 export default function Home() {
+  useEffect(() => {
+    AOS.init();
+  });
+
   return (
     <>
       <div className='index'></div>
       <div className='background h-screen'></div>
       <div className='container mx-auto'>
-        <div className='w-fit mx-auto py-20 grid grid-cols-3  gap-20 place-items-center'>
+        <div
+          className='w-fit mx-auto py-20 grid grid-cols-3  gap-20 place-items-center'
+          data-aos='fade-up'
+          data-aos-duration='3000'
+        >
           <p>
             <a href='https://github.com/Younngg/'>
               <strong>Github</strong>
@@ -28,6 +40,7 @@ export default function Home() {
       </div>
       <div className='background h-96'></div>
       <div className='container mx-auto h-96'></div>
+      <div className='background h-96'></div>
       <style jsx>{`
         .index {
           width: 100%;
