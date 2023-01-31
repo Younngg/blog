@@ -8,7 +8,7 @@ const Study = ({ velogData }: { velogData: VelogType }) => {
   console.log(velogData);
 
   return (
-    <div>
+    <div className='container mx-auto py-10'>
       <StudyList postData={velogData} />
     </div>
   );
