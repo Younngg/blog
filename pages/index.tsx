@@ -11,11 +11,28 @@ export default function Home() {
     <>
       <div className='index'></div>
       <div className='background h-screen'></div>
+      <div className='container mx-auto px-12 py-10 flex flex-auto gap-10 justify-center'>
+        <div className='w-2/5 h-96'>
+          <iframe
+            className='w-full h-full'
+            src='https://www.youtube.com/embed/videoseries?list=PL055hBeFBrbC1fKHxz9pJ52-vVyducONU'
+            title='YouTube video player'
+            allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+            allowFullScreen
+            data-aos='fade-up'
+            data-aos-duration='1000'
+          ></iframe>
+        </div>
+        <div className='w-2/5 flex items-center justify-center'>
+          <p className='font-semibold text-xl'>Play List</p>
+        </div>
+      </div>
+      <div className='background h-96'></div>
       <div className='container mx-auto'>
         <div
-          className='w-fit mx-auto py-20 grid grid-cols-3  gap-20 place-items-center'
+          className='w-fit mx-auto py-20 grid grid-cols-3 gap-20 place-items-center'
           data-aos='fade-up'
-          data-aos-duration='3000'
+          data-aos-duration='1000'
         >
           <p>
             <a
@@ -50,9 +67,7 @@ export default function Home() {
           </p>
         </div>
       </div>
-      <div className='background h-96'></div>
-      <div className='container mx-auto h-96'></div>
-      <div className='background h-96'></div>
+      <div className='background h-20'></div>
       <style jsx>{`
         .index {
           width: 100%;

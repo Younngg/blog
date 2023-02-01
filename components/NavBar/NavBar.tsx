@@ -4,7 +4,7 @@ import React from 'react';
 const NavBar = () => {
   return (
     <>
-      <header className='sticky top-0'>
+      <header className='sticky top-0 z-50'>
         <div className='container mx-auto flex flex-col items-center'>
           <h1 className='mt-8 mb-3 font-bold text-lg'>
             <Link href='/'>지영의 블로그</Link>
