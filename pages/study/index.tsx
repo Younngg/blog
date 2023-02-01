@@ -5,8 +5,6 @@ import { VelogType } from './../../types/Velog';
 import StudyList from './../../components/StudyList/StudyList';
 
 const Study = ({ velogData }: { velogData: VelogType }) => {
-  console.log(velogData);
-
   return (
     <div className='container mx-auto py-10'>
       <StudyList postData={velogData} />
