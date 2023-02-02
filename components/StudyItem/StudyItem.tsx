@@ -15,7 +15,9 @@ const StudyItem = ({ post }: { post: VelogPostType }) => {
         </a>
       </div>
       <div className='border-t'></div>
-      <div className='text-xs text-neutral-600 text-right'>{post.isoDate}</div>
+      <div className='text-xs text-neutral-600 text-right'>
+        {post.isoDate.slice(0, 10)}
+      </div>
     </div>
   );
 };
