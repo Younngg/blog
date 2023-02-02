@@ -1,10 +1,18 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React from 'react';
 import navLinks from './../../data/navLinks';
+import Seo from './../Seo';
+import metadata from './../../data/metadata';
 
 const NavBar = () => {
+  const router = useRouter();
+
+  const pageTitle = metadata.find((v) => v.link === router.pathname);
+
   return (
     <>
+      <Seo title={pageTitle?.title} />
       <header className='sticky top-0 z-50'>
         <div className='container mx-auto flex flex-col items-center'>
           <h1 className='mt-8 mb-3 font-bold text-lg'>
