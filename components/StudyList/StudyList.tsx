@@ -10,7 +10,7 @@ const StudyList = ({ postData }: { postData: VelogType }) => {
   const OFFSET = (page - 1) * LIMIT;
 
   return (
-    <div className='w-3/5 mx-auto'>
+    <div className='w-full mx-auto'>
       {postData.items.slice(OFFSET, OFFSET + LIMIT).map((post) => (
         <StudyItem key={post.guid} post={post} />
       ))}
