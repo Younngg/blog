@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
+import navLinks from './../../data/navLinks';
 
 const NavBar = () => {
   return (
@@ -10,17 +11,14 @@ const NavBar = () => {
             <Link href='/'>지영의 블로그</Link>
           </h1>
           <div className='mb-4'>
-            <nav className='grid grid-cols-2 gap-4'>
-              <li>
-                <Link href='/study' legacyBehavior>
-                  <a className='block p-4'>Study</a>
-                </Link>
-              </li>
-              <li>
-                <Link href='/me' legacyBehavior>
-                  <a className='block p-4'>Daily</a>
-                </Link>
-              </li>
+            <nav className={`grid grid-cols-${navLinks.length} gap-4`}>
+              {navLinks.map((link) => (
+                <li key={link.link}>
+                  <Link href={link.link} legacyBehavior>
+                    <a className='block p-4'>{link.title}</a>
+                  </Link>
+                </li>
+              ))}
             </nav>
           </div>
         </div>
