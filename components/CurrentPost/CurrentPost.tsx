@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 const CurrentPost = ({ posts }: { posts: Post[] }) => {
   return (
-    <ul className='w-full text-gray-900'>
+    <ul className='w-full'>
       {posts?.slice(0, 5).map((post) => (
         <Link key={post._id} href={`/daily/${post._raw.flattenedPath}`}>
           <li className='w-full py-3 border-b border-gray-900'>
