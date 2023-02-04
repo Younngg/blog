@@ -4,9 +4,11 @@ import { useEffect } from 'react';
 import { allPosts } from '@/.contentlayer/generated';
 import { InferGetStaticPropsType } from 'next';
 import CurrentPost from '../components/CurrentPost/CurrentPost';
+import Tag from './../components/Tag/Tag';
 
 export default function Home({
   posts,
+  tags,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   useEffect(() => {
     AOS.init();
@@ -16,18 +18,23 @@ export default function Home({
     <>
       <div className='index'></div>
       <div className='background h-screen'></div>
-      <div className='p-10 px-20 flex flex-col items-center bg-[#80a77a]'>
-        <div
-          className='md:container xl:w-1/2 flex flex-col items-center'
-          data-aos='fade-up'
-        >
-          <h2 className='text-xl font-bold'>Current Post</h2>
-          <CurrentPost posts={posts} />
+      <div className='p-10 items-center bg-[#80a77a]'>
+        <div className='sm:container xl:w-3/5 min-[1900px]:px-20 flex flex-col gap-20'>
+          <div className='flex flex-col items-center' data-aos='fade-up'>
+            <h2 className='text-xl font-bold'>Current Post</h2>
+            <CurrentPost posts={posts} />
+          </div>
+          <div className='flex flex-col items-center' data-aos='fade-up'>
+            <h2 className='text-xl font-bold mb-10'>
+              I&apos;ve been talking about...
+            </h2>
+            {tags && <Tag tags={tags} size='large' />}
+          </div>
         </div>
       </div>
       <div className='background h-96'></div>
       <div className='px-12 py-10 flex justify-center bg-[#80a77a]'>
-        <div className='md:container xl:w-1/2 h-96 flex flex-auto gap-10 justify-center'>
+        <div className='sm:container xl:w-1/2 h-96 flex flex-auto gap-10 justify-center'>
           <iframe
             className='xl:w-1/3 md:w-1/2 h-full'
             src='https://www.youtube.com/embed/videoseries?list=PL055hBeFBrbC1fKHxz9pJ52-vVyducONU'
@@ -111,9 +118,16 @@ export const getStaticProps = async () => {
     (a, b) => Number(new Date(b.date)) - Number(new Date(a.date))
   );
 
+  const tags = allPosts.flatMap(
+    (post) => post.tags && post.tags.split(',').map((tag) => tag.trimStart())
+  ) as string[];
+
+  const uniqueTags = new Set(tags);
+
   return {
     props: {
       posts,
+      tags: Array.from(uniqueTags),
     },
   };
 };
