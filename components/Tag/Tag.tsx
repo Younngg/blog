@@ -8,9 +8,9 @@ const Tag = ({ tags, size }: { tags: string[]; size?: 'large' | 'medium' }) => {
           key={tag}
           className={`list-none ${
             size === 'large'
-              ? 'text-lg py-2 px-4 rounded-3xl'
-              : 'text-xs py-1 px-2 rounded-2xl'
-          } text-[#68b75e] bg-gray-100`}
+              ? 'text-lg py-1 px-4 rounded-3xl text-[#80a77a]'
+              : 'text-xs py-1 px-2 rounded-2xl text-[#68b75e]'
+          } bg-gray-100`}
         >
           {tag}
         </li>

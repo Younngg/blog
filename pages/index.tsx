@@ -3,12 +3,15 @@ import 'aos/dist/aos.css';
 import { useEffect } from 'react';
 import { allPosts } from '@/.contentlayer/generated';
 import { InferGetStaticPropsType } from 'next';
-import CurrentPost from '../components/CurrentPost/CurrentPost';
 import Tag from './../components/Tag/Tag';
+import Parser from 'rss-parser';
+import { VelogPostType } from '@/types/Velog';
+import RecentPost from './../components/RecentPost/RecentPost';
 
 export default function Home({
   posts,
   tags,
+  velogPosts,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   useEffect(() => {
     AOS.init();
@@ -18,11 +21,16 @@ export default function Home({
     <>
       <div className='index'></div>
       <div className='background h-screen'></div>
-      <div className='p-10 items-center bg-[#80a77a]'>
+      <div className='p-20 flex justify-center bg-[#80a77a]'>
         <div className='sm:container xl:w-3/5 min-[1900px]:px-20 flex flex-col gap-20'>
+          <h2 className='text-center text-2xl font-bold'>Recent Post</h2>
           <div className='flex flex-col items-center' data-aos='fade-up'>
-            <h2 className='text-xl font-bold'>Current Post</h2>
-            <CurrentPost posts={posts} />
+            <h2 className='text-xl font-bold mb-10'>Study</h2>
+            <RecentPost posts={posts} />
+          </div>
+          <div className='flex flex-col items-center' data-aos='fade-up'>
+            <h2 className='text-xl font-bold mb-10'>Daily</h2>
+            <RecentPost posts={velogPosts} />
           </div>
           <div className='flex flex-col items-center' data-aos='fade-up'>
             <h2 className='text-xl font-bold mb-10'>
@@ -124,10 +132,17 @@ export const getStaticProps = async () => {
 
   const uniqueTags = new Set(tags);
 
+  let parser = new Parser();
+
+  const velogPosts = await parser.parseURL(
+    'https://v2.velog.io/rss/younngg1012'
+  );
+
   return {
     props: {
       posts,
       tags: Array.from(uniqueTags),
+      velogPosts: velogPosts.items as VelogPostType[],
     },
   };
 };

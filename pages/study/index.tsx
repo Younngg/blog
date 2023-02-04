@@ -22,11 +22,13 @@ export default Study;
 export const getServerSideProps = async () => {
   let parser = new Parser();
 
-  const result = await parser.parseURL('https://v2.velog.io/rss/younngg1012');
+  const velogData = await parser.parseURL(
+    'https://v2.velog.io/rss/younngg1012'
+  );
 
   return {
     props: {
-      velogData: result,
+      velogData: velogData,
     },
   };
 };
