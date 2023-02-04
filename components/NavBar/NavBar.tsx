@@ -21,7 +21,7 @@ const NavBar = () => {
           <div className='mb-4'>
             <nav className={`grid grid-cols-${navLinks.length} gap-4`}>
               {navLinks.map((link) => (
-                <li key={link.link}>
+                <li key={link.link} className='list-none'>
                   <Link href={link.link} legacyBehavior>
                     <a className='block p-4'>{link.title}</a>
                   </Link>
