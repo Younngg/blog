@@ -14,6 +14,7 @@ const Daily = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
           des={post.description}
           date={post.date}
           id={post._raw.flattenedPath}
+          tag={post.tags?.split(',').map((tag) => tag.trimStart())}
           key={post._id}
         />
       ))}

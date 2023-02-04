@@ -2,23 +2,22 @@ import React from 'react';
 import { allPosts } from '@/.contentlayer/generated';
 import { InferGetStaticPropsType } from 'next';
 import { useMDXComponent } from 'next-contentlayer/hooks';
-import PageTitle from '../../components/PageTitle/PageTitle';
+import Tag from '../../components/Tag/Tag';
 
 const DailyDetail = ({
   post,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const MDXComponent = useMDXComponent(post!.body.code);
-
-  console.log(post);
+  const MDXComponent = useMDXComponent(post.body!.code);
 
   return (
     <div className='container mx-auto p-10'>
-      <div className='mb-10  border-b pb-10'>
+      <div className='mb-10  border-b'>
         <div className='flex items-center justify-between mb-10'>
           <h1 className='text-5xl font-bold'>{post!.title}</h1>
           <span className='text-sm'>{post!.date}</span>
         </div>
-        <p className='leading-10'>{post?.description}</p>
+        <p className='mb-10'>{post?.description}</p>
+        <div className='mb-5'>{post!.tags && <Tag tags={post.tags} />}</div>
       </div>
       <div className='prose'>
         <MDXComponent />
@@ -44,7 +43,10 @@ export const getStaticProps = async ({
   const post = allPosts.find((p) => p._raw.flattenedPath === params.id);
   return {
     props: {
-      post,
+      post: {
+        ...post,
+        tags: post?.tags?.split(',').map((tag) => tag.trimStart()),
+      },
     },
   };
 };
