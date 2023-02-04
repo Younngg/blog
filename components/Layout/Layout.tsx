@@ -18,16 +18,17 @@ const Layout = ({ children }: { children: ReactNode }) => {
     <>
       <NavBar />
       {router.pathname.includes('daily') && (
-        <div className='px-12 py-10 flex justify-center bg-[#80a77a]'>
-          <div className='sm:container xl:w-1/2 h-80 flex flex-auto gap-10 justify-center'>
+        <div className='playList px-12 py-10 flex justify-center bg-[#80a77a]'>
+          <div
+            className='sm:container xl:w-1/2 h-80 flex flex-auto gap-10 justify-center'
+            data-aos='fade-up'
+          >
             <iframe
               className='xl:w-1/3 md:w-1/2 h-full'
               src='https://www.youtube.com/embed/videoseries?list=PL055hBeFBrbC1fKHxz9pJ52-vVyducONU'
               title='YouTube video player'
               allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
               allowFullScreen
-              data-aos='fade-up'
-              data-aos-duration='1000'
             ></iframe>
             <div className='xl:w-1/3 md:w-1/2 flex items-center justify-center'>
               <p className='font-semibold text-xl'>Play List</p>
@@ -77,6 +78,13 @@ const Layout = ({ children }: { children: ReactNode }) => {
           </p>
         </div>
       </footer>
+      <style jsx>{`
+        .playList {
+          background: no-repeat url('/asset/playListBg.jpg');
+          background-size: 100%;
+          background-position: center;
+        }
+      `}</style>
     </>
   );
 };

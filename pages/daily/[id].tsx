@@ -3,6 +3,7 @@ import { allPosts } from '@/.contentlayer/generated';
 import { InferGetStaticPropsType } from 'next';
 import { useMDXComponent } from 'next-contentlayer/hooks';
 import Tag from '../../components/Tag/Tag';
+import Link from 'next/link';
 
 const DailyDetail = ({
   post,
@@ -21,6 +22,13 @@ const DailyDetail = ({
       </div>
       <div className='prose'>
         <MDXComponent />
+      </div>
+      <div className='mt-28 flex justify-center'>
+        <Link href='/daily' legacyBehavior>
+          <a className='block bg-gray-200 rounded-3xl w-fit py-2 px-5 hover:bg-gray-300'>
+            목록
+          </a>
+        </Link>
       </div>
     </div>
   );

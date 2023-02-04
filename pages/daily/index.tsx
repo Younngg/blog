@@ -1,10 +1,16 @@
 import { allPosts } from '@/.contentlayer/generated';
 import { InferGetStaticPropsType } from 'next';
-import React from 'react';
+import React, { useState } from 'react';
 import PageTitle from './../../components/PageTitle/PageTitle';
 import DailyItem from './../../components/DailyItem/DailyItem';
+import Pagination from '@/components/Pagination/Pagination';
 
 const Daily = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const [page, setPage] = useState(1);
+
+  const LIMIT = 4;
+  const OFFSET = (page - 1) * LIMIT;
+
   return (
     <div className='w-3/5 mx-auto'>
       {posts.map((post) => (
@@ -17,6 +23,12 @@ const Daily = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
           key={post._id}
         />
       ))}
+      <Pagination
+        total={posts.length}
+        limit={LIMIT}
+        page={page}
+        setPage={setPage}
+      />
     </div>
   );
 };
