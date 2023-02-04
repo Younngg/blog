@@ -7,11 +7,7 @@ import PageTitle from './../../components/PageTitle/PageTitle';
 
 const Study = ({ velogData }: { velogData: VelogType }) => {
   return (
-    <div className='w-3/5 mx-auto py-10'>
-      <PageTitle
-        title='Study'
-        description='공유하고 싶거나 제가 공부한 것을 기록합니다.'
-      />
+    <div className='w-3/5 mx-auto'>
       <StudyList postData={velogData} />
     </div>
   );
