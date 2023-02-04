@@ -1,8 +1,13 @@
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
+import { allPosts } from '@/.contentlayer/generated';
+import { InferGetStaticPropsType } from 'next';
+import CurrentPost from '../components/CurrentPost/CurrentPost';
 
-export default function Home() {
+export default function Home({
+  posts,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   useEffect(() => {
     AOS.init();
   });
@@ -11,6 +16,11 @@ export default function Home() {
     <>
       <div className='index'></div>
       <div className='background h-screen'></div>
+      <div className='container mx-auto p-10 flex flex-col items-center'>
+        <h2 className='text-xl font-bold'>Current Post</h2>
+        <CurrentPost posts={posts} />
+      </div>
+      <div className='background h-96'></div>
       <div className='container mx-auto px-12 py-10 flex flex-auto gap-10 justify-center'>
         <div className='w-2/5 h-96'>
           <iframe
@@ -90,3 +100,15 @@ export default function Home() {
     </>
   );
 }
+
+export const getStaticProps = async () => {
+  const posts = allPosts.sort(
+    (a, b) => Number(new Date(b.date)) - Number(new Date(a.date))
+  );
+
+  return {
+    props: {
+      posts,
+    },
+  };
+};
