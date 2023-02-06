@@ -11,7 +11,7 @@ const DailyDetail = ({
   const MDXComponent = useMDXComponent(post.body!.code);
 
   return (
-    <div className='container mx-auto p-10'>
+    <div className='w-3/5 mx-auto p-10'>
       <div className='mb-10  border-b'>
         <div className='flex items-center justify-between mb-10'>
           <h1 className='text-5xl font-bold'>{post!.title}</h1>
@@ -20,7 +20,7 @@ const DailyDetail = ({
         <p className='mb-10'>{post?.description}</p>
         <div className='mb-5'>{post!.tags && <Tag tags={post.tags} />}</div>
       </div>
-      <div className='prose'>
+      <div className='prose max-w-full'>
         <MDXComponent />
       </div>
       <div className='mt-28 flex justify-center'>

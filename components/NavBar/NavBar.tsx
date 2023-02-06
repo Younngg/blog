@@ -16,6 +16,7 @@ const NavBar = () => {
 
   const bgColorForPath: BgColorForPathType = {
     '/daily': 'bg-white',
+    '/daily/[id]': 'bg-white',
     '/study': 'studyBg',
     '/': 'bg-[#91c788]',
   };
