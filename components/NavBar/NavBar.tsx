@@ -18,6 +18,7 @@ const NavBar = () => {
     '/daily': 'bg-white',
     '/daily/[id]': 'bg-white',
     '/study': 'studyBg',
+    '/study/[id]': 'bg-white',
     '/': 'bg-[#91c788]',
   };
 
