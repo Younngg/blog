@@ -25,11 +25,11 @@ export default function Home({
         <div className='sm:container xl:w-3/5 min-[1900px]:px-20 flex flex-col gap-20'>
           <h2 className='text-center text-2xl font-bold'>Recent Post</h2>
           <div className='flex flex-col items-center' data-aos='fade-up'>
-            <h2 className='text-xl font-bold mb-10'>Study</h2>
+            <h2 className='text-xl font-bold mb-10'>Daily</h2>
             <RecentPost posts={posts} />
           </div>
           <div className='flex flex-col items-center' data-aos='fade-up'>
-            <h2 className='text-xl font-bold mb-10'>Daily</h2>
+            <h2 className='text-xl font-bold mb-10'>Study</h2>
             <RecentPost posts={velogPosts} />
           </div>
           <div className='flex flex-col items-center' data-aos='fade-up'>
