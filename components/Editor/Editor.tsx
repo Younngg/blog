@@ -23,7 +23,7 @@ const Editor = () => {
     try {
       await axios.post('/api', post);
     } catch (err) {
-      console.log(err);
+      alert('로컬 환경에서만 작성할 수 있습니다.');
     }
   };
 
