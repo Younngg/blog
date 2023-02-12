@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const StudyDetail = ({ post }: { post: any }) => {
   return (
-    <div className='w-3/5 mx-auto p-10'>
+    <div className='sm:w-3/5 mx-auto p-10'>
       <div className='mb-10  border-b'>
         <div className='flex items-center justify-between mb-10'>
           <h1 className='text-5xl font-bold'>{post!.title}</h1>
