@@ -22,6 +22,7 @@ const Editor = () => {
 
     try {
       await axios.post('/api', post);
+      alert('파일을 생성했습니다.');
     } catch (err) {
       alert('로컬 환경에서만 작성할 수 있습니다.');
     }
