@@ -1,9 +1,15 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, RefObject } from 'react';
 import NavBar from '../NavBar/NavBar';
 import { useRouter } from 'next/router';
 import PageTitle from '../PageTitle/PageTitle';
 
-const Layout = ({ children }: { children: ReactNode }) => {
+const Layout = ({
+  children,
+  headerRef,
+}: {
+  children: ReactNode;
+  headerRef: RefObject<HTMLHeadElement>;
+}) => {
   const router = useRouter();
 
   const title = {
@@ -16,7 +22,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
 
   return (
     <>
-      <NavBar />
+      <NavBar headerRef={headerRef} />
       {router.pathname.includes('daily') && (
         <div className='playList px-12 py-10 flex justify-center bg-[#80a77a]'>
           <div
