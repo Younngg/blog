@@ -26,11 +26,11 @@ const Layout = ({
       {router.pathname.includes('daily') && (
         <div className='playList px-12 py-10 flex justify-center bg-[#80a77a]'>
           <div
-            className='sm:container xl:w-1/2 h-80 flex flex-auto gap-10 justify-center'
+            className='sm:container xl:w-1/2 h-80 flex flex-col-reverse sm:flex-row flex-auto gap-10 justify-center'
             data-aos='fade-up'
           >
             <iframe
-              className='xl:w-1/3 md:w-1/2 h-full'
+              className=' sm:w-auto xl:w-1/3 md:w-1/2 h-full'
               src='https://www.youtube.com/embed/videoseries?list=PL055hBeFBrbC1fKHxz9pJ52-vVyducONU'
               title='YouTube video player'
               allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
@@ -49,7 +49,7 @@ const Layout = ({
         />
       ) : null}
       <div>{children}</div>
-      <footer className='mx-auto mt-20 bg-[#80a77a]'>
+      <footer className='mx-auto s sm:mt-20 bg-[#80a77a]'>
         <div className='w-fit mx-auto py-20 grid grid-cols-3 gap-20 place-items-center'>
           <p>
             <a

@@ -7,7 +7,7 @@ import PageTitle from './../../components/PageTitle/PageTitle';
 
 const Study = ({ velogData }: { velogData: VelogType }) => {
   return (
-    <div className='w-3/5 mx-auto'>
+    <div className='w-5/6 sm:w-3/5 mx-auto'>
       <StudyList postData={velogData} />
     </div>
   );

@@ -18,10 +18,10 @@ export default function Home({
   });
 
   return (
-    <>
-      <div className='index'></div>
-      <div className='background h-screen'></div>
-      <div className='p-20 flex justify-center bg-[#80a77a]'>
+    <div className='w-screen'>
+      <div className='index hidden sm:block'></div>
+      <div className='background h-screen hidden sm:block'></div>
+      <div className='p-5 sm:p-20 justify-center bg-[#80a77a]'>
         <div className='sm:container xl:w-3/5 min-[1900px]:px-20 flex flex-col gap-20'>
           <h2 className='text-center text-2xl font-bold'>Recent Post</h2>
           <div className='flex flex-col items-center' data-aos='fade-up'>
@@ -38,8 +38,7 @@ export default function Home({
           </div>
         </div>
       </div>
-      <div className='background h-96'></div>
-      <div className='background h-20'></div>
+      <div className='background h-96 hidden sm:block'></div>
       <style jsx>{`
         .index {
           width: 100%;
@@ -59,7 +58,7 @@ export default function Home({
           color: #595959;
         }
       `}</style>
-    </>
+    </div>
   );
 }
 

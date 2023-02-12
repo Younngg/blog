@@ -50,7 +50,6 @@ const NavBar = ({ headerRef }: { headerRef: RefObject<HTMLHeadElement> }) => {
         .studyBg {
           background: no-repeat url('/asset/studyBg.jpg') #b7967a;
           background-size: 100%;
-          background-position: center top -300px;
           color: white;
         }
 

@@ -12,7 +12,7 @@ const Daily = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const OFFSET = (page - 1) * LIMIT;
 
   return (
-    <div className='w-3/5 mx-auto'>
+    <div className='w-5/6 sm:w-3/5 mx-auto'>
       {posts.slice(OFFSET, OFFSET + LIMIT).map((post) => (
         <DailyItem
           title={post.title}

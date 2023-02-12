@@ -6,7 +6,7 @@ const StudyItem = ({ post }: { post: VelogPostType }) => {
   const postId = post.link.split('https://velog.io/@younngg1012/')[1];
 
   return (
-    <div className='w-full h-80 px-12 py-10 mb-5 border border-gray-200 shadow-md flex flex-col gap-5 hover:-translate-y-2 hover:shadow-lg transition-all'>
+    <div className='w-full sm:h-80 px-12 py-10 mb-5 border border-gray-200 shadow-md flex flex-col gap-5 hover:-translate-y-2 hover:shadow-lg transition-all'>
       <div className='flex flex-col gap-5'>
         <Link href={`/study/${postId}`}>
           <h3 className='font-semibold text-neutral-700 mb-1'>{post.title}</h3>
