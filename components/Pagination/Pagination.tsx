@@ -32,14 +32,14 @@ const Pagination = ({ total, limit, page, setPage }: PaginationProps) => {
           <button
             onClick={() => page !== 1 && setPage(page - 1)}
             disabled={page === 1}
-            className='relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 disabled:bg-gray-100'
+            className='relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 disabled:bg-gray-100'
           >
             Previous
           </button>
           <button
             onClick={() => page !== pageNum && setPage(page + 1)}
             disabled={page === pageNum}
-            className='relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 disabled:bg-gray-100'
+            className='relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 disabled:bg-gray-100'
           >
             Next
           </button>
