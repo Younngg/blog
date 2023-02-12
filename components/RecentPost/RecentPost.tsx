@@ -13,7 +13,12 @@ const RecentPost = ({ posts }: { posts: Post[] | VelogPostType[] }) => {
       {posts &&
         posts.slice(0, 5).map((post) =>
           instanceOfVelogPost(post) ? (
-            <Link key={post.guid} href={post.guid}>
+            <Link
+              key={post.guid}
+              href={`study/${
+                post.link.split('https://velog.io/@younngg1012/')[1]
+              }`}
+            >
               <li className='w-full py-3 border-b border-gray-900'>
                 <div className='flex items-center justify-between sm:mb-2'>
                   <div className='w-2/3 sm:text-lg font-bold truncate'>
