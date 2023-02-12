@@ -3,12 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "nodemon server/server.js",
+    "dev": "next dev && nodemon server/server.js",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
-  "type": "module",
   "dependencies": {
     "@mdx-js/loader": "^2.2.1",
     "@mdx-js/react": "^2.2.1",
@@ -37,6 +36,7 @@
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.9",
     "@types/aos": "^3.0.4",
+    "@types/express": "^4.17.17",
     "tailwindcss": "^3.2.4"
   }
 }

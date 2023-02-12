@@ -1,6 +1,6 @@
-import * as postService from '../services/postService.js';
+const postService = require('../services/postService.js');
 
-export const createPost = async (req, res) => {
+const createPost = async (req, res) => {
   const post = req.body;
 
   console.log(req.body);
@@ -11,3 +11,5 @@ export const createPost = async (req, res) => {
 
   return res.status(200).send(post);
 };
+
+exports.createPost = createPost;

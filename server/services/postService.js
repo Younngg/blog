@@ -1,10 +1,8 @@
-import path from 'path';
-import fs from 'fs/promises';
-import { join } from 'path';
+const path = require('path');
+const fs = require('fs/promises');
+const { join } = require('path');
 
-const __dirname = path.resolve();
-
-export const createPost = async (post) => {
+const createPost = async (post) => {
   const folderPath = join(__dirname, './posts');
   const filePath = join(__dirname, `./posts/${post.title}.mdx`);
   const folder = await fs.readdir(folderPath).catch(() => void 0);
@@ -36,3 +34,5 @@ ${post.content}
 
   return post;
 };
+
+exports.createPost = createPost;

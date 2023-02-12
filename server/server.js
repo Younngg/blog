@@ -1,6 +1,6 @@
-import next from 'next';
-import postRouter from './routes/postRouter.js';
-import express from 'express';
+const next = require('next');
+const postRouter = require('./routes/postRouter');
+const express = require('express');
 
 const dev = process.env.NODE_ENV !== 'production';
 const hostname = 'localhost';
