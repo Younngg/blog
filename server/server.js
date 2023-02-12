@@ -1,6 +1,4 @@
 import next from 'next';
-import { parse } from 'url';
-import { createServer } from 'http';
 import postRouter from './routes/postRouter.js';
 import express from 'express';
 
